@@ -32,3 +32,38 @@ The list of functions and local endpoints will be printed; point your browser to
 
 You can also enable incremental compilation by running `npm run watch` in a new terminal window.
 
+## Integrate function app with Azure SQL Database
+
+### Use EntraID authentication locally
+
+Create an externally identified user in the database if needed; the `<identity-name>` should be your EntraID username:
+
+    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+    ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+    ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+
+Go to the Azure SQL database in the portal, settings -> connection strings and copy the value displayed under
+"ADO.NET (Microsoft Entra passwordless authentication)". It will look like this:
+
+    Server=tcp:your_Azure_SQL_server.database.windows.net,1433;Initial Catalog=your_Azure_SQL_database;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";
+
+Add this setting to your `local.settings.json` as a new attribute of the `Value` object; the attribute name should be `SqlConnectionString`. At this point your local.settings.json will look like this:
+
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "FUNCTIONS_WORKER_RUNTIME": "node",
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "SqlConnectionString":"Server=tcp:your_Azure_SQL_server.database.windows.net,1433;Initial Catalog=your_Azure_SQL_database;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";"
+        }
+    }
+
+### Adjust the Azure SQL Database server firewall settings if needed
+
+Go to the SQL server (not the database) resource in the portal, check "Public access" under security -> networking. Enable the "Selected networks" option and add your client IP or create a firewall rule as needed.
+
+### Add a function to query DB time
+
+    func new --name DbTime --template "HTTP trigger" --authlevel "function"
+
+Edit the implementation and leverage an sql input referencing the `SqlConnectionString` setting. See `DbTime.ts` for details.
