@@ -67,3 +67,10 @@ Go to the SQL server (not the database) resource in the portal, check "Public ac
     func new --name DbTime --template "HTTP trigger" --authlevel "function"
 
 Edit the implementation and leverage an sql input referencing the `SqlConnectionString` setting. See `DbTime.ts` for details.
+
+### Support Retrieve and RetrieveMultiple operations
+
+The `getFacility` and `getFacilities` function implement querying by facilityid and querying multiple records, respectively.
+For the single record operation, the `id` part of the route is mandatory and needs to be a GUID - otherwise HTTP 500 is generated.
+For the multiple record operation, currently all the query parameters must be present in the request. It seems to be a limitation
+of the `@sqlparam={Query.myParameter}` syntax which results in an HTTP 500 if myParameter is not present.
