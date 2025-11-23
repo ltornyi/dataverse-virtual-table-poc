@@ -16,3 +16,23 @@ participate in 1:N and N:M relationships.
 ## Architecture
 
 The facility underlying datastore is Azure SQL Database table. An Azure Function App serves APIs to query the table. The Function App is protected by EntraID. The custom Dataverse virtual table data provider implements the API calls for Dataverse. See the `Azure` and the `Power Platform` folders for details.
+
+## Steps to follow if implementing from scratch
+
+### Azure
+
+This is detailed in the `Azure/README.md` file.
+
+1. Create `poc` schema and `facility` table in Azure SQL Database
+2. Set up function app local development environment
+3. Set up remote access for your database, adjust firewall
+4. Check the function app code, run and test locally
+5. Deploy function app to Azure, test remote calls using the function keys
+6. Configure managed identity for the function app, set it up as an external user in the DB
+7. Test all remote calls end-to-end using function keys
+
+### Power Platform
+
+This is detailed in the `Power Platform/README.md` file.
+
+to be continued...

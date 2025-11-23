@@ -74,3 +74,101 @@ The `getFacility` and `getFacilities` function implement querying by facilityid 
 For the single record operation, the `id` part of the route is mandatory and needs to be a GUID - otherwise HTTP 500 is generated.
 For the multiple record operation, currently all the query parameters must be present in the request. It seems to be a limitation
 of the `@sqlparam={Query.myParameter}` syntax which results in an HTTP 500 if myParameter is not present.
+
+### Deploy to Azure
+
+#### Create resource group, storage account and function app
+
+    LOCATION="your region"
+    RG_NAME="your resource group"
+    SA_NAME="your storage account name"
+    APP_NAME="your function app name"
+
+    az group create --name $RG_NAME --location $LOCATION
+
+    az storage account create --name $SA_NAME \
+    --location $LOCATION \
+    --resource-group $RG_NAME \
+    --sku Standard_LRS \
+    --allow-blob-public-access false
+
+    az functionapp create \
+    --resource-group $RG_NAME \
+    --consumption-plan-location $LOCATION \
+    --runtime node --runtime-version 20 \
+    --functions-version 4 \
+    --name $APP_NAME \
+    --storage-account $SA_NAME \
+    --os-type Linux
+
+#### Build and deploy the function app
+
+    npm run build
+    func azure functionapp publish $APP_NAME
+
+#### Call a function
+
+Note the URLs printed by the deployment; for authLevel=function endpoints you will need to pass a function key i.e. `https://<your function app>.azurewebsites.net/api/<your function route>?code=<your function key>`. Example CLI command to list function key for the ServerTime function:
+
+    az functionapp function keys list \
+        --function-name ServerTime \
+        --name $APP_NAME \
+        --resource-group $RG_NAME
+
+Try calling it with curl:
+
+    curl -v "https://<your function app>.azurewebsites.net/api/ServerTime?code=<your function key>"
+
+This should work but if you try calling the dbtime function, it will fail with an HTTP 500 because the database connection is not set up yet.
+
+### Connect the function app to Azure SQL with managed identity
+
+This is based on [MS Documentation](https://learn.microsoft.com/en-gb/azure/azure-functions/functions-identity-access-azure-sql-with-managed-identity).
+
+#### Check if your database server has an Entra admin
+
+    SQL_SERVER_RG="resource group of your SQL server"
+    SQL_SERVER_NAME="name of your SQL server"
+    az sql server ad-admin list \
+        --resource-group $SQL_SERVER_RG \
+        --server-name $SQL_SERVER_NAME
+
+If there's no Micrososft Entra administrator, follow the steps [here](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql&tabs=azure-portal#provision-azure-ad-admin-sql-database) to add one.
+
+#### Add managed identity to your function app
+
+Either enable system-assigned managed identity or add a user-assigned managed identity. You can do this from the portal (settings -> identity) or you can use the CLI; see instructions [here](https://learn.microsoft.com/en-gb/azure/app-service/overview-managed-identity?tabs=cli%2Cdotnet&toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-system-assigned-identity). The name of the system-assigned identity is always the name of the function app.
+
+#### Create database user for the managed identity
+
+    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+    ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+    ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+
+run the following to get the list of external users:
+
+    SELECT * FROM sys.database_principals where type='E'
+
+#### Set the connection string for the deployed function app
+
+On the portal, navigate to the function app and look into settings -> environment variables. Create a new one called `SqlConnectionString` under App settings.
+
+If you used the system-assigned managed identity, the connection string should look like:
+
+    Server=tcp:your_Azure_SQL_server.database.windows.net,1433;Initial Catalog=your_Azure_SQL_database;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication="Active Directory Managed Identity";
+
+If you used a user-assigned managed identity, the connection string should look like:
+
+    Server=tcp:your_Azure_SQL_server.database.windows.net,1433;Initial Catalog=your_Azure_SQL_database;Persist Security Info=False;User ID=ClientIdOfManagedIdentity;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication="Active Directory Managed Identity";
+
+Once you have this set up, you can try calling the dbtime endpoint again using the proper function key; this time it should work! Finally, check the query endpoints, use the propert keys for the functions; example:
+
+    curl -v "https://your_function_app.azurewebsites.net/api/facility?code=code_for_the_facility_function&clientId=&search=&top=&orderbyField=&orderbyDir="
+
+### Secure the APIs using Microsoft Entra
+
+This is an optional but very useful enhancement. So far external clients (for example the virtual data provider plugin in Dataverse) can call the function endpoints but they need the key for each function. Rotating and managing the keys becomes a concerted effort that both the function app maintainers and API consumers need to coordinate.
+
+Entra authentication can solve this problem because API consumers no longer need to manage secrets like the function key. This option is also called "EasyAuth" for App Service and Function apps. Follow the [quickstart](https://learn.microsoft.com/en-us/azure/app-service/scenario-secure-app-authentication-app-service?tabs=workforce-configuration). Look at the [page here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-configuration) for more details.
+
+to be continued...
