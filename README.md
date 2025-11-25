@@ -33,6 +33,6 @@ This is detailed in the `Azure/README.md` file.
 
 ### Power Platform
 
-This is detailed in the `Power Platform/README.md` file.
+This is detailed in the `Power Platform/README.md` file. There was a failed attemp to build the virtual data provider plug-in on a Mac - the main blocker is that Dataverse plugins require .NET Framework 4.6.2 which is Windows only. This attempt is documented in the `Power Platform/README_plugin_build_attempt_on_Mac.md` file.
 
 to be continued...

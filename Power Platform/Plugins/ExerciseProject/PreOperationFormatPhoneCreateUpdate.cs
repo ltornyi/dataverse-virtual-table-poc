@@ -1,19 +1,15 @@
-using Microsoft.Xrm.Sdk;
-
+﻿using Microsoft.Xrm.Sdk;
+using System;
 using System.Text.RegularExpressions;
 
 namespace ExerciseProject
 {
     public class PreOperationFormatPhoneCreateUpdate : IPlugin
     {
-        public PreOperationFormatPhoneCreateUpdate()
-        {
-        }
-
         public void Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
-            
+
             if (!context.InputParameters.ContainsKey("Target"))
                 throw new InvalidPluginExecutionException("No target found");
 
