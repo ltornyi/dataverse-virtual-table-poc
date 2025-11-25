@@ -1,0 +1,96 @@
+# .gitignore for C# / .NET projects (Visual Studio, Rider, VS Code)
+# Created for repository: dataverse-virtual-table-poc
+
+### Visual Studio ###
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+### Build outputs ###
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+artifacts/
+*.ilk
+*.meta
+*.obj
+*.pdb
+*.exe
+*.dll
+*.app
+
+### NuGet ###
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+.nuget/
+
+### Rider / IntelliJ ###
+.idea/
+*.sln.iml
+*.ipr
+*.iws
+
+### ReSharper ###
+_ReSharper*/
+*[_]ReSharper*/
+*.DotSettings.user
+
+### User-specific files ###
+*.user
+*.userprefs
+*.rsuser
+*.suo
+*.msscci
+
+### Logs, test results, coverage ###
+*.log
+TestResults/
+*.trx
+*.Coverage
+coverage/
+coverage*.xml
+
+### VS Code ###
+.vscode/
+
+### macOS / Windows artifacts ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Node / front-end (if present) ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+
+### Temporary files ###
+*.tmp
+*.temp
+*.~*
+
+### Database files ###
+*.mdf
+*.ldf
+*.sqlite
+
+### Other ###
+*.vsix
+*.publishsettings
+
+# Ignore bin/obj at any depth (catch-all)
+**/[Bb]in/
+**/[Oo]bj/
+
+# private strong-name keys
+*.snk
+
+# End of .gitignore

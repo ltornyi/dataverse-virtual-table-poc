@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>505458a1-0ba4-48da-8337-273e405c8ded</UserSecretsId>
+    <!-- Enable strong-name signing -->
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>signingkey.snk</AssemblyOriginatorKeyFile>
+    <!-- Optional: use PublicSign on build systems where private keys are not available -->
+    <!-- <PublicSign>true</PublicSign> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="8.2.0" />
+    <None Include="signingkey.snk" />
+  </ItemGroup>
+
+</Project>
