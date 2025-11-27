@@ -24,7 +24,65 @@ To check the end-to-end process and setup, complete [this exercise](https://lear
 6. Download the Plugin Registration Tool (PRT) directly from [here](https://www.nuget.org/packages/Microsoft.CrmSdk.XrmTooling.PluginRegistrationTool).
 7. Once you have the PRT NuGet package downloaded, rename it to .zip, extract it and run the executable. You might want to create a shortcut on your desktop for convenience.
 8. Follow the instructions to create a connection but DON'T enter a username or a password - Microsoft login will be launched and will guide you through the login process.
-9. Continue with the assembly and plug-on steps registrations.
+9. Continue with the assembly and plug-in steps registrations.
 10. Test the plugin; create/update a contact and observe how only the digits remain in the Business Phone field.
 
 The sample code is in the `ExerciseProject` folder; feel free to complete the rest of the exercise. Once you are confident you can build and deploy a plug-in assembly, unregister the sample assembly from Dataverse.
+
+### Create custom data provider and deploy to Dataverse
+
+Build the project and register the assembly.
+
+1. Review the `FacilityDataProvider` project
+2. Modify the `Retrieve` and `RetrieveMultiple` plug-ins and add your function app endpoint and function keys.
+3. Configure signing and build the project
+4. Register the assembly
+
+Register the data provider and data source.
+
+1. Go to the maker portal and create an unmanaged solution - this will have your data provider and virtual table.
+2. Register the data provider; specify your solution and the FacilityDataProvider assembly.
+3. Under Data Source Entity, choose to create a new Data Source. Fill in display name, plural name, solution and internal name. This will create a new table (it's not the virtual table).
+4. Pick the event handlers - choose "Not implemented" for the create, update and delete events
+5. Register the data provider
+
+At this point, your solution will have the data source table and the data provider added. We will have to create a record in the data source table.
+
+1. go to legacy settings i.e. cogwheel -> advanced settings
+2. settings -> administration -> virtual entity data sources
+3. click New, select FacilityDataProvider
+4. specify a name, for example "My Facility Data Source"
+5. click save&close
+
+### Create virtual table and use the custom data source
+
+According to the [documentation](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/create-edit-virtual-entities#open-an-unmanaged-solution), you still have to use the classic solution experience. For example click on Solutions in the maker portal and then click *Switch to classic* on the menu.
+
+1. Open your unmanaged solution your virtual table should be part of.
+2. Select *Entities* on the left and then select *New*
+3. Specify mandatory fields (Display name, Plural name, Name, External Name, External Collection Name)
+4. Select the data source record you created earlier.
+5. click save
+
+Your virtual table was created, continue adding columns. The clientid column should be a lookup to Accounts, otherwise be mindful of types, lengths and internal names (see the `Facility.ToEntity` method).
+
+### Enable tracing and test your virtual table
+
+The [documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/tutorial-write-plug-in#view-trace-logs) says to go to the classic admin experience.
+
+1. Settings -> System -> Administration -> System Settings
+2. in the customization tab, set *Enable logging to plug-in trace log* to *All*
+3. Click OK.
+
+Now you can try querying the virtual table, for example in the maker portal. There's a user interface for plug-in trace logs in the classic admin experience, under Settings -> Customization -> Plug-in Trace log.
+
+Disable plug-in trace logs once testing is complete.
+
+## Create customizations in Dataverse
+
+To be continued...
+
+* Tickets table with lookup to Accounts
+* Tickets - Facilities many-to-many
+* Customize Accounts main form
+* Create model driven app
