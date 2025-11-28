@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{be4b30f8-4465-4b43-8e36-3a9538cc3bb1}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{fcef4864-c11d-41e2-9041-bc5a0741974e}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{aebe7be6-7f2c-4f16-bee0-b3a3b350ce7e}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{dd9aac56-f0ad-4434-8180-69ad811c2754}">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ltornyi_title" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{77be7b80-b1db-455d-9d0a-6a7ebe2c2837}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Account" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ltornyi_account" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d81895bf-336a-4696-bb96-88c7a8d86f8b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Ticket status" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_ticketstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ltornyi_ticketstatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d91e511b-4e67-4b3d-a77a-009ad85c25f5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Priority" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_priority" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="ltornyi_priority" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b8e9d95b-aa65-4f55-a4ad-ad67337a4509}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="83b6b5d0-7d0f-47ed-aa38-913a293acf68" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Facilities" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{7a59336b-224f-4142-93ba-9b9ece73f9d7}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Facilities" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>ltornyi_ticketfacility_Ticket_ltornyi_ticket</RelationshipName>
+                            <TargetEntityType>ltornyi_ticketfacility</TargetEntityType>
+                            <ViewId>{181659DA-3ECC-F011-8544-6045BD9613E8}</ViewId>
+                            <ViewIds>{282C7BA9-0880-479C-B5F5-20BE01FBFAC1},{181659DA-3ECC-F011-8544-6045BD9613E8}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8201b090-a59f-4012-916c-9718b868feab}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6e5a40d9-82af-48eb-a0f7-66497c25ca29}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{74c8caa7-62e1-4e09-a2c3-76107b0e7d94}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{dd91410b-bc9d-4358-9f27-df1def4fe56d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{fcc41847-75e4-42a7-937a-7bad1ca7264e}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{fd545b21-80fd-4dd8-8e37-a3784bb41391}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{dfb109d1-1336-4cae-917e-393e103b9b5c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7b1ab627-a7c3-4791-abc8-c52633c8c980}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

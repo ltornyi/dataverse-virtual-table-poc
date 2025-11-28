@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.25112.144" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25112.144" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25113.00135">
+  <SolutionManifest>
+    <UniqueName>VirtualtablePoC</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Virtual table PoC" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>ltornyi_publisher</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="ltornyi_publisher" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="ltornyi_publisher" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>ltornyi</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>11438</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="account" behavior="1" />
+      <RootComponent type="1" schemaName="ltornyi_facility" behavior="0" />
+      <RootComponent type="1" schemaName="ltornyi_facility_ds" behavior="0" />
+      <RootComponent type="1" schemaName="ltornyi_ticket" behavior="0" />
+      <RootComponent type="1" schemaName="ltornyi_ticketfacility" behavior="0" />
+      <RootComponent type="181" id="{3c749a12-f7ca-f011-8544-000d3a4c7ea2}" schemaName="FacilityDataProvider" behavior="0" />
+      <RootComponent type="62" schemaName="ltornyi_Facilitymanagement" behavior="0" />
+      <RootComponent type="80" schemaName="ltornyi_Facilitymanagement" behavior="0" />
+      <RootComponent type="9" schemaName="ltornyi_ticketpriority" behavior="0" />
+      <RootComponent type="9" schemaName="ltornyi_ticketstatus" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="account" displayName="Account" parentSchemaName="" solution="System (5.0)" />
+        <Dependent type="1" schemaName="account" displayName="Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="183" schemaName="My Facility Data Source" displayName="My Facility Data Source" solution="Active" id="{42e870b7-f8ca-f011-8544-6045bd9613e8}" />
+        <Dependent type="1" schemaName="ltornyi_facility" displayName="Facility" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="All Accounts" displayName="All Accounts" parentSchemaName="account" parentDisplayName="Account" solution="msdynce_AppCommon (9.0.4.0066)" id="{65ffaf9a-e8c5-432d-860b-32f841b00d87}">
+          <package appName="msdynce_AppCommon" version="9.0.24102.10001">msdynce_AppCommonAnchor (9.0.24102.10001)</package>
+          <package appName="Dynamics 365 Application Common" version="9.0.24123.10001">msdynce_AppCommonAnchor (9.0.24123.10001)</package>
+        </Required>
+        <Dependent type="80" schemaName="ltornyi_Facilitymanagement" displayName="Facility management" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)">
+          <package appName="AppModule Web Resources Package" version="2.5">AppModuleWebResources (2.5)</package>
+        </Required>
+        <Dependent type="80" schemaName="ltornyi_Facilitymanagement" displayName="Facility management" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="90" schemaName="FacilityDataProvider.Retrieve, FacilityDataProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d990c9f710216b1" displayName="FacilityDataProvider.Retrieve" solution="Active" id="{61a8e29d-8bfc-4be0-87e7-4d067fc0e0eb}" />
+        <Dependent type="181" schemaName="FacilityDataProvider" displayName="FacilityDataProvider" id="{3c749a12-f7ca-f011-8544-000d3a4c7ea2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="90" schemaName="FacilityDataProvider.RetrieveMultiple, FacilityDataProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d990c9f710216b1" displayName="FacilityDataProvider.RetrieveMultiple" solution="Active" id="{fd4b6945-497a-40f8-89a2-9f8631c53486}" />
+        <Dependent type="181" schemaName="FacilityDataProvider" displayName="FacilityDataProvider" id="{3c749a12-f7ca-f011-8544-000d3a4c7ea2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.15)" id.uniquename="AppChannel">
+          <package appName="PowerAppsAppFramework Package" version="1.0.0.23">PowerAppsAppFramework_Anchor (1.0.0.23)</package>
+        </Required>
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=ltornyi_Facilitymanagement,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="ltornyi_Facilitymanagement" id.settingdefinitionid.uniquename="AppChannel" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

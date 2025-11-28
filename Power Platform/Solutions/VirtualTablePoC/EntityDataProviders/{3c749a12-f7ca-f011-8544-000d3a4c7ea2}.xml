@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDataProvider xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityDataProviderId>{3c749a12-f7ca-f011-8544-000d3a4c7ea2}</EntityDataProviderId>
+  <Name>FacilityDataProvider</Name>
+  <DataSourceLogicalName>ltornyi_facility_ds</DataSourceLogicalName>
+  <IsCustomizable>1</IsCustomizable>
+  <RetrievePluginTypeId>61a8e29d-8bfc-4be0-87e7-4d067fc0e0eb</RetrievePluginTypeId>
+  <RetrieveMultiplePluginTypeId>fd4b6945-497a-40f8-89a2-9f8631c53486</RetrieveMultiplePluginTypeId>
+  <CreatePluginTypeId>c1919979-0021-4f11-a587-a8f904bdfdf9</CreatePluginTypeId>
+  <UpdatePluginTypeId>c1919979-0021-4f11-a587-a8f904bdfdf9</UpdatePluginTypeId>
+  <DeletePluginTypeId>c1919979-0021-4f11-a587-a8f904bdfdf9</DeletePluginTypeId>
+  <LookupExpansionEnabled>0</LookupExpansionEnabled>
+</EntityDataProvider>

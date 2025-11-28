@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{502dd385-7c35-4456-82ed-902dc2016175}</savedqueryid>
+    <layoutxml>
+      <grid name="ltornyi_ticketfacilities" jump="ltornyi_name" select="1" icon="1" preview="1">
+        <row name="ltornyi_ticketfacility" id="ltornyi_ticketfacilityid">
+          <cell name="ltornyi_ticket" width="100" />
+          <cell name="a_ac38c1c85df64c7889aab3c84b64e466.ltornyi_ticketstatus" width="159" />
+          <cell name="a_ac38c1c85df64c7889aab3c84b64e466.ltornyi_priority" width="131" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ltornyi_ticketfacility">
+          <attribute name="ltornyi_ticketfacilityid" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="ltornyi_ticket" />
+          <link-entity alias="a_ac38c1c85df64c7889aab3c84b64e466" name="ltornyi_ticket" to="ltornyi_ticket" from="ltornyi_ticketid" link-type="outer" visible="false">
+            <attribute name="ltornyi_ticketstatus" />
+            <attribute name="ltornyi_priority" />
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Ticket Facility Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

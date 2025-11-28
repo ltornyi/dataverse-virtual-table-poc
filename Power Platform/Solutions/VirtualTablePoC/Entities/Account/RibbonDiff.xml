@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="ltornyi.account.MyActions.FlyOut.CustomAction" Location="Mscrm.Form.account.MainTab.Actions.Controls._children" Sequence="36">
+      <CommandUIDefinition>
+        <FlyoutAnchor Command="Mscrm.Enabled" Id="ltornyi.account.MyActions.FlyOut" LabelText="$LocLabels:ltornyi.account.MyActions.FlyOut.LabelText" Sequence="36" TemplateAlias="o1" ModernImage="$webresource:accessChecker_icon">
+          <Menu Id="ltornyi.account.MyActions.FlyOut.Menu">
+            <MenuSection Id="ltornyi.account.MyActions.Section" Sequence="5" DisplayMode="Menu16">
+              <Controls Id="ltornyi.account.MyActions.Section.Controls">
+                <Button Command="ltornyi.account.MyActions.Google" Id="ltornyi.account.MyActions.Button1" LabelText="$LocLabels:ltornyi.account.MyActions.Button1.LabelText" Sequence="10" ModernImage="$webresource:Activities/Images/OpenRecord.svg" />
+                <Button Command="ltornyi.account.MyActions.ShowName" Id="ltornyi.account.MyActions.BtnShowName" LabelText="$LocLabels:ltornyi.account.MyActions.BtnShowName.LabelText" Sequence="15" ModernImage="$webresource:adx_portals_area.svg" />
+              </Controls>
+            </MenuSection>
+          </Menu>
+        </FlyoutAnchor>
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="ltornyi.account.MyActions.Google">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <Url Address="https://google.com" WinMode="0" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="ltornyi.account.MyActions.ShowName">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="A4DRibbon.ShowFieldValue" Library="$webresource:ltornyi_ribbonlibrary">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="name" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="ltornyi.account.MyActions.BtnShowName.LabelText">
+      <Titles>
+        <Title description="Show name" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ltornyi.account.MyActions.Button1.LabelText">
+      <Titles>
+        <Title description="Google" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ltornyi.account.MyActions.FlyOut.LabelText">
+      <Titles>
+        <Title description="My Actions" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

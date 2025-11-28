@@ -80,9 +80,26 @@ Disable plug-in trace logs once testing is complete.
 
 ## Create customizations in Dataverse
 
-To be continued...
+### Customize tables
 
-* Tickets table with lookup to Accounts
-* Tickets - Facilities many-to-many
-* Customize Accounts main form
-* Create model driven app
+1. Create a custom table called Ticket with a mandatory lookup to Accounts. The primary name field should be called Title. add choice colunms Priority and Ticket Status.
+2. Create a custom table called Ticket Facility with two mandatory lookups, one to Ticket and one to Facility. Make the primary name field optional.
+
+### Customize views and forms
+
+1. Create a view for the Ticket table to be used as a view for the Ticket subgrid on the Accounts main form.
+2. Create a new main form for Accounts, add a Tickets section and add a subgrid component to show related Tickets. Use the view created in the previous step.
+3. Create a view for the Ticket Facilities table to be used as a view for the Ticket Facilities subgrid on the Ticket main form.
+3. Edit the Ticket main form, add the account lookup, ticket status and priority fields.
+4. Still on the Ticket main form, add a section and subgrid to show related Ticket Facility records. Used the view created in step 3.
+5. Customize the Ticket Facility main form, remove the name field and add the Facility and Ticket fields. Make the ticket field read-only.
+
+Create a model driven app to bring Accounts, Tickets and Facilities together. Try navigating the relationships through the subgrid and the related views.
+
+## Export and store solution in source control
+
+Useful `pac` commands:
+
+    pac solution list
+    pac solution export --name VirtualtablePoC --overwrite
+    pac solution unpack --zipfile VirtualtablePoC.zip --folder ./Solutions/VirtualtablePoC

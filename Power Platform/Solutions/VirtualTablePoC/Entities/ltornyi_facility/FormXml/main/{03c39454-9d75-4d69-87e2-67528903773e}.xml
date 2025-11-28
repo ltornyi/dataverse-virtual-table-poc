@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{03c39454-9d75-4d69-87e2-67528903773e}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{58bfd103-0170-4f64-a15d-a395d25c6bc6}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{c9cefc0b-7df0-4bee-aa1b-98a77466e643}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6a5564ee-83ba-49db-9b00-af6e8b9c174a}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ltornyi_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{91ce72df-670a-4e70-a02f-a2a008330053}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_clientid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ltornyi_clientid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d0cb8cf7-8119-48fd-aa82-f71778b8739b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Address" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_address" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ltornyi_address" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{97c2b713-d650-43c7-b655-fa278430509e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Facility Type" languagecode="1033" />
+                        </labels>
+                        <control id="ltornyi_facilitytype" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="ltornyi_facilitytype" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{392c655a-1133-4b85-9801-549c5333001f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6491a028-4c0c-4ec5-afef-4313b6f90a74}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{18f67a6b-c89c-416b-9782-2a81598ca86f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f2fbe77b-4cb6-49ca-893a-f4e76b941b03}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5b640b69-0493-4d1b-be2d-c8144d23fff3}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Created On" languagecode="1033" />
+              </labels>
+              <control id="header_ltornyi_created_on" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ltornyi_created_on" disabled="false" />
+            </cell>
+            <cell id="{aa84edbf-3c33-43f9-b754-137d81448ea0}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Modified On" languagecode="1033" />
+              </labels>
+              <control id="header_ltornyi_modified_on" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="ltornyi_modified_on" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{1ba1824d-9d90-4af7-981d-7d30971ad6d4}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{f9ca232b-c057-47e2-80df-6ac64b9b5b0e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fdda3cfe-732d-45ae-9a4b-f7b13f8ac314}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7bc8accb-8c4a-4d81-a32d-71cb0598db89}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

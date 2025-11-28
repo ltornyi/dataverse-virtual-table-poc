@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{50fb8252-d828-42b5-8e57-158ae2177aef}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ltornyi_name" select="1" icon="1" preview="1">
+        <row name="result" id="ltornyi_facilityid">
+          <cell name="ltornyi_name" width="300" />
+          <cell name="ltornyi_clientid" width="100" />
+          <cell name="ltornyi_facilitytype" width="115" />
+          <cell name="ltornyi_address" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ltornyi_facility">
+          <attribute name="ltornyi_facilityid" />
+          <attribute name="ltornyi_name" />
+          <attribute name="ltornyi_facilitytype" />
+          <attribute name="ltornyi_clientid" />
+          <attribute name="ltornyi_address" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Facilities" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

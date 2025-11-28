@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>ltornyi_Facilitymanagement</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="1" schemaName="ltornyi_facility" />
+    <AppModuleComponent type="1" schemaName="ltornyi_ticket" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000000666000}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001001}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001002}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001031}" />
+    <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001200}" />
+    <AppModuleComponent type="26" id="{59e57080-0cc2-e211-9b83-00155d89b902}" />
+    <AppModuleComponent type="26" id="{38a21ffb-4e32-4038-beb9-03172a0dd034}" />
+    <AppModuleComponent type="26" id="{7e740a7f-a73f-4971-b330-18d4587fa917}" />
+    <AppModuleComponent type="26" id="{a1def0fb-6b5f-4a5b-9d93-1b430c2df7de}" />
+    <AppModuleComponent type="26" id="{65ffaf9a-e8c5-432d-860b-32f841b00d87}" />
+    <AppModuleComponent type="26" id="{fe91dfbf-4800-471c-8ac6-3a07db1a34c8}" />
+    <AppModuleComponent type="26" id="{2d1187c4-23fe-4bb5-9647-43bb1c6ddbd1}" />
+    <AppModuleComponent type="26" id="{d234426e-1f37-4944-9255-50e19b541c4c}" />
+    <AppModuleComponent type="26" id="{660e1c2d-55dc-418d-a932-646da3055ed4}" />
+    <AppModuleComponent type="26" id="{1bd96bba-bf1b-43a1-9c03-bab36fcb8700}" />
+    <AppModuleComponent type="26" id="{a9af0ab8-861d-4cfa-92a5-c6281fed7fab}" />
+    <AppModuleComponent type="26" id="{8a194671-f491-4eff-b645-f6af2201e516}" />
+    <AppModuleComponent type="60" id="{dd6f6245-b8c7-f011-8544-6045bd9613e8}" />
+    <AppModuleComponent type="62" schemaName="ltornyi_Facilitymanagement" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Facility management" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Manage accounts, account's facilities and tickets" languagecode="1033" />
+  </Descriptions>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

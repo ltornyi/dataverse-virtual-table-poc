@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d74102d4-b8c7-f011-8544-002248851227}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ltornyi_title" select="1" icon="1" preview="1">
+        <row name="result" id="ltornyi_ticketid">
+          <cell name="ltornyi_title" width="200" />
+          <cell name="createdon" width="105" />
+          <cell name="ltornyi_ticketstatus" width="111" />
+          <cell name="ltornyi_priority" width="100" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="ltornyi_ticket">
+          <attribute name="ltornyi_title" />
+          <attribute name="ltornyi_ticketid" />
+          <attribute name="createdon" />
+          <attribute name="ownerid" />
+          <attribute name="ltornyi_ticketstatus" />
+          <attribute name="ltornyi_priority" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Ticket account subgrid" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

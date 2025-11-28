@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{660e1c2d-55dc-418d-a932-646da3055ed4}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ltornyi_title" select="1" icon="1" preview="1">
+        <row name="result" id="ltornyi_ticketid">
+          <cell name="ltornyi_title" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical" distinct="true">
+        <entity name="ltornyi_ticket">
+          <attribute name="ltornyi_ticketid" />
+          <attribute name="ltornyi_title" />
+          <attribute name="createdon" />
+          <order attribute="ltornyi_title" descending="false" />
+          <filter type="and">
+            <condition attribute="ltornyi_ticketstatus" operator="eq" value="114380002" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Tickets" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,15 @@
+<aiskillconfig uniquename="ais_FormFillFieldOptOut_ltornyi_facility_ltornyi_modified_on">
+  <aiskill>FormFillFieldOptOut</aiskill>
+  <attribute>
+    <entityid.logicalname>ltornyi_facility</entityid.logicalname>
+    <logicalname>ltornyi_modified_on</logicalname>
+  </attribute>
+  <description>ltornyi_facility - Modified On Form fill opt out</description>
+  <entity>
+    <logicalname>ltornyi_facility</logicalname>
+  </entity>
+  <iscustomizable>1</iscustomizable>
+  <scope>1</scope>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiskillconfig>
