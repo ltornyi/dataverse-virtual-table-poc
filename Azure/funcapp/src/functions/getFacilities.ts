@@ -14,8 +14,8 @@ const sqlInput = input.sql({
             created_on,
             modified_on
         FROM poc.facility
-        WHERE (@clientId = '' or try_convert(uniqueidentifier, @clientId) is null OR client_id = try_convert(uniqueidentifier, @clientId))
-          AND (@search = '' or name LIKE @search)
+        WHERE (@clientId = '' or @clientId = ' ' or try_convert(uniqueidentifier, @clientId) is null OR client_id = try_convert(uniqueidentifier, @clientId))
+          AND (@search = '' or @search = ' ' or name LIKE @search)
         ORDER BY
             CASE
                 WHEN @orderbyField = 'name' AND @orderbyDir = 'asc' THEN name
