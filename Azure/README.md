@@ -172,3 +172,37 @@ This is an optional but very useful enhancement. So far external clients (for ex
 Entra authentication can solve this problem because API consumers no longer need to manage secrets like the function key. This option is also called "EasyAuth" for App Service and Function apps. Follow the [quickstart](https://learn.microsoft.com/en-us/azure/app-service/scenario-secure-app-authentication-app-service?tabs=workforce-configuration). Look at the [page here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-configuration) for more details.
 
 to be continued...
+
+### Secure the APIs to be accessible from virtual networks only
+
+Another idea to lock down access to the function app is to make it available only to selected virtual networks (VNets) and leverage Power Platform's [Virtual network support](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview) feature to call the function endpoints from a delegated Azure subnet.
+
+One caveat to look out for is that once a Power Platform environment is configured for Virtual Network support, all Dataverse plug-ins and connectors execute requests in the delegated subnet. Review network policies and existing plug-ins before enabling Virtual Network support.
+
+Detailed steps to set up Virtual Network support for your environment are [here](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-setup-configure). Make sure you have the Microsoft.PowerPlatform provider registered in your Azure subscription.
+
+## Check Power Platform region and Azure regions
+
+You will need to create two VNets and a subnet in each according to the list of [Supported regions](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-regions).
+
+If your Power Platform components need public internet access, then you will need to deploy an Azure NAT Gateway as well.
+
+## Lock down function app
+
+Select your function app in the Azure portal, click on Settings->Networking and change the setting `Public network access`. Change the default to `deny` and allow traffic from the two VNet's subnets.
+
+## Delegate subnets to Power Platform
+
+You can run the PowerShell script as part of the [guide](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-setup-configure) or you can manually delegate each subnet on the Azure portal, instructions are [here](https://learn.microsoft.com/en-us/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal#delegate-a-subnet-to-an-azure-service). Delegate the subnets to `Microsoft.PowerPlatform/enterprisePolicies`.
+
+## Create policy
+
+Follow the [guide](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-setup-configure#create-the-enterprise-policy).
+
+## Assign power platform environment to policy
+
+Follow the [guide](/subscriptions/fb08dd31-84d8-43a7-b576-5a66a8c9148a/resourceGroups/funcapp-api-for-virtual-table/providers/Microsoft.Network/virtualNetworks/vnet-northeurope). The environment must be a managed environment.
+
+You will need [this script](https://github.com/microsoft/PowerPlatform-EnterprisePolicies/blob/main/Source/SubnetInjection/RevertSubnetInjection.ps1) if you later want to remove the policy from the environment. You can use [this script](https://github.com/microsoft/PowerPlatform-EnterprisePolicies/blob/main/Source/SubnetInjection/GetSubnetInjectionEnterprisePolicyForEnvironment.ps1) to get the enterprise policy's arm id.
+
+to be continued...
